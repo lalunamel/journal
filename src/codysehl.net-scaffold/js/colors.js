@@ -1,22 +1,11 @@
-import Color from "color";
-
 const colors = {
-  blue: "#289cd8",
-  black: "#0b0b0b",
-  red: "#f0424b",
-  gray: "#efefef"
+  blue: "hsl(200, 69%, 50%)",
+  calmBlue: "hsl(200, 69%, 60%)",
+  black: "hsl(0, 0%, 4%)",
+  calmBlack: "hsl(0, 0%, 28%)",
+  calmerBlack: "hsl(0, 0%, 33%)",
+  calmestBlack: "hsl(0, 0%, 68%)",
+  red: "hsl(357, 85%, 60%)"
 };
-colors.calmBlue = Color(colors.blue)
-  .lighten(0.1)
-  .string();
-colors.calmBlack = Color(colors.black)
-  .lighten(0.25)
-  .string();
-colors.calmerBlack = Color(colors.black)
-  .lighten(0.3)
-  .string();
-// $calm-blue = lighten($blue, 10%)
-// $calm-black = lighten($black, 25%)
-// $calmer-black = lighten($black, 30%)
 
 export default colors;
