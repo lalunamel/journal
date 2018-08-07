@@ -42,8 +42,8 @@ const EntryForm = props => {
   return (
     <div style={styles.entryForm}>
       <textarea style={styles.entryEditor} onChange={entryEditorOnChange} value={props.entry} placeholder={"Dear diary..."} />
-      <input style={styles.tagEditor} onChange={tagEditorOnChange} type="text" value={props.tags.join(", ")} placeholder={"software, android, cats"} />
-      <button style={styles.submitButton} type="submit">
+      <input style={styles.tagEditor} onChange={tagEditorOnChange} type="text" value={props.tags} placeholder={"software, android, cats"} />
+      <button style={styles.submitButton} onClick={props.entryFormSubmitted} type="submit">
         SUBMIT
       </button>
     </div>
@@ -52,9 +52,10 @@ const EntryForm = props => {
 
 EntryForm.propTypes = {
   entry: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.string),
+  tags: PropTypes.string,
   entryEditorValueChanged: PropTypes.func,
-  tagEditorValueChanged: PropTypes.func
+  tagEditorValueChanged: PropTypes.func,
+  entryFormSubmitted: PropTypes.func
 };
 
 export default EntryForm;
