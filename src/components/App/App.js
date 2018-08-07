@@ -4,6 +4,7 @@ import "./App.css";
 import Nav from "../Nav";
 import Header from "../Header";
 import EntryForm from "../EntryForm";
+import EntriesContainer from "../EntriesContainer";
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,23 @@ class App extends Component {
 
     this.state = {
       entryEditorValue: "",
-      tagEditorValue: ""
+      tagEditorValue: "",
+      entries: [
+        {
+          date: "2018-08-07",
+          tags: "software, android, cats",
+          text: `Today I was working on an exercism in Kotlin. When I ran the test in Android Studio I got the error \`Failed to compile. TriangleTest not found\`
+
+          Turns out I just needed to run it in IntelliJ instead. See [this](http://wwww.stackoverflow.com) stackoverflow question.`
+        },
+        {
+          date: "2018-08-07",
+          tags: "software, android, cats",
+          text: `Today  I was working on an exercism in Kotlin. When I ran the test in Android Studio I got the error \`Failed to compile. TriangleTest not found\`
+
+            Turns out I just needed to run it in IntelliJ instead. See [this](http://wwww.stackoverflow.com) stackoverflow question.`
+        }
+      ]
     };
 
     this.entryEditorValueChanged = this.entryEditorValueChanged.bind(this);
@@ -58,6 +75,7 @@ class App extends Component {
           tagEditorValueChanged={this.tagEditorValueChanged}
           entryFormSubmitted={this.entryFormSubmitted}
         />
+        <EntriesContainer entries={this.state.entries} />
       </div>
     );
   }
