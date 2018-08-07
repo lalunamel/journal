@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+let borderColor = "hsla(0, 0%, 70%, 1)";
+
 const styles = {
   entryForm: {
     margin: "60px auto",
@@ -9,24 +11,31 @@ const styles = {
     flexDirection: "column"
   },
   entryEditor: {
+    fontFamily: "monospace",
     display: "block",
     width: "100%",
     height: 180,
     boxSizing: "border-box",
-    resize: "none"
+    resize: "none",
+    borderColor: borderColor,
+    padding: "8px"
   },
   tagEditor: {
+    fontFamily: "monospace",
     marginTop: 20,
     width: "100%",
-    boxSizing: "border-box"
+    height: 30,
+    boxSizing: "border-box",
+    border: `1px solid ${borderColor}`,
+    padding: "0 8px"
   },
   submitButton: {
     width: "max-content",
     alignSelf: "flex-end",
     marginTop: 20,
-    backgroundColor: "lightgray",
-    border: "none",
-    padding: "3px 10px"
+    backgroundColor: "white",
+    border: `1px solid ${borderColor}`,
+    padding: "6px 30px"
   }
 };
 
@@ -44,7 +53,7 @@ const EntryForm = props => {
       <textarea style={styles.entryEditor} onChange={entryEditorOnChange} value={props.entry} placeholder={"Dear diary..."} />
       <input style={styles.tagEditor} onChange={tagEditorOnChange} type="text" value={props.tags} placeholder={"software, android, cats"} />
       <button style={styles.submitButton} onClick={props.entryFormSubmitted} type="submit">
-        SUBMIT
+        Submit
       </button>
     </div>
   );
