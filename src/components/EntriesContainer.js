@@ -13,7 +13,6 @@ const styles = {
 };
 
 const EntriesContainer = props => {
-  console.log(props);
   return (
     <div style={styles.entriesContainer}>
       {props.entries.map(entry => {
