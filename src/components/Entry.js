@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import ReactMarkdown from "react-markdown";
+
 import Colors from "../codysehl.net-scaffold/js/colors";
 
 const styles = {
@@ -34,7 +36,9 @@ const Entry = props => {
     <div style={styles.entry}>
       <div style={styles.date}>{formattedDate}</div>
       <div style={styles.tags}>{props.tags}</div>
-      <div style={styles.text}>{props.text}</div>
+      <div style={styles.text}>
+        <ReactMarkdown source={props.text} />
+      </div>
     </div>
   );
 };
