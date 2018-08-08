@@ -23,7 +23,7 @@ export default props => {
   return (
     <div style={styles.header}>
       <div style={styles.title}>Journal</div>
-      <div style={styles.subtitle}>serves as a log for what worked, what didn't, and why</div>
+      <div style={styles.subtitle}>is a log for what worked and what didn't</div>
     </div>
   );
 };
