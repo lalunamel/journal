@@ -13,9 +13,11 @@ const styles = {
 };
 
 const EntriesContainer = props => {
+  const entriesByDate = props.entries.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
   return (
     <div style={styles.entriesContainer}>
-      {props.entries.map(entry => {
+      {entriesByDate.map(entry => {
         return <Entry key={entry.text} date={entry.date} tags={entry.tags} text={entry.text} />;
       })}
     </div>
