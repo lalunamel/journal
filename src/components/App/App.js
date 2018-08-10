@@ -33,7 +33,6 @@ class App extends Component {
 
     this.entryEditorValueChanged = this.entryEditorValueChanged.bind(this);
     this.tagEditorValueChanged = this.tagEditorValueChanged.bind(this);
-    this.entryFormSubmitted = this.entryFormSubmitted.bind(this);
     this.previewEntryFormClicked = this.previewEntryFormClicked.bind(this);
     this.onEditEntry = this.onEditEntry.bind(this);
     this.onSaveEntry = this.onSaveEntry.bind(this);
@@ -63,17 +62,13 @@ class App extends Component {
   // Entry Preview
 
   onEditEntry() {
-    console.log("Edit clicked");
+    this.setState({
+      inPreviewMode: false
+    });
   }
 
   onSaveEntry() {
     console.log("Save clicked");
-  }
-
-  entryFormSubmitted() {
-    console.log("Submitted:");
-    console.log(this.state.entryEditorValue);
-    console.log(this.state.tagEditorValue);
 
     this.setState({
       entryEditorValue: "",
@@ -96,7 +91,6 @@ class App extends Component {
             tags={this.state.tagEditorValue}
             entryEditorValueChanged={this.entryEditorValueChanged}
             tagEditorValueChanged={this.tagEditorValueChanged}
-            entryFormSubmitted={this.entryFormSubmitted}
             onPreviewEntryForm={this.previewEntryFormClicked}
           />
         )}

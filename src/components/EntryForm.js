@@ -64,7 +64,6 @@ EntryForm.propTypes = {
   tags: PropTypes.string,
   entryEditorValueChanged: PropTypes.func,
   tagEditorValueChanged: PropTypes.func,
-  entryFormSubmitted: PropTypes.func,
   onPreviewEntryForm: PropTypes.func
 };
 
