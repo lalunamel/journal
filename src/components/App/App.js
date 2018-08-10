@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 
+import RepositoryFactory from "../../Repository/InMemoryRepository";
+
 import Nav from "../Nav";
 import Header from "../Header";
 import EntryForm from "../EntryForm";
@@ -36,6 +38,9 @@ class App extends Component {
     this.previewEntryFormClicked = this.previewEntryFormClicked.bind(this);
     this.onEditEntry = this.onEditEntry.bind(this);
     this.onSaveEntry = this.onSaveEntry.bind(this);
+    this.onEntriesUpdated = this.onEntriesUpdated.bind(this);
+
+    this.Repository = RepositoryFactory(this.onEntriesUpdated);
   }
 
   // Actions
@@ -68,11 +73,24 @@ class App extends Component {
   }
 
   onSaveEntry() {
-    console.log("Save clicked");
+    console.log("Saving...");
 
+    this.Repository.saveNewEntry(this.state.entryEditorValue, this.state.tagEditorValue, () => {
+      console.log("Save complete!");
+
+      this.setState({
+        entryEditorValue: "",
+        tagEditorValue: "",
+        inPreviewMode: false
+      });
+    });
+  }
+
+  // Updating
+
+  onEntriesUpdated(newEntries) {
     this.setState({
-      entryEditorValue: "",
-      tagEditorValue: ""
+      entries: newEntries
     });
   }
 
