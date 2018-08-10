@@ -4,6 +4,7 @@ import "./App.css";
 import Nav from "../Nav";
 import Header from "../Header";
 import EntryForm from "../EntryForm";
+import PreviewForm from "../PreviewForm";
 import EntriesContainer from "../EntriesContainer";
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      inPreviewMode: false,
       entryEditorValue: "",
       tagEditorValue: "",
       entries: [
@@ -32,10 +34,14 @@ class App extends Component {
     this.entryEditorValueChanged = this.entryEditorValueChanged.bind(this);
     this.tagEditorValueChanged = this.tagEditorValueChanged.bind(this);
     this.entryFormSubmitted = this.entryFormSubmitted.bind(this);
+    this.previewEntryFormClicked = this.previewEntryFormClicked.bind(this);
+    this.onEditEntry = this.onEditEntry.bind(this);
+    this.onSaveEntry = this.onSaveEntry.bind(this);
   }
 
   // Actions
 
+  // Entry Edit Form
   entryEditorValueChanged(value) {
     this.setState({
       entryEditorValue: value
@@ -46,6 +52,22 @@ class App extends Component {
     this.setState({
       tagEditorValue: value
     });
+  }
+
+  previewEntryFormClicked() {
+    this.setState({
+      inPreviewMode: true
+    });
+  }
+
+  // Entry Preview
+
+  onEditEntry() {
+    console.log("Edit clicked");
+  }
+
+  onSaveEntry() {
+    console.log("Save clicked");
   }
 
   entryFormSubmitted() {
@@ -66,13 +88,18 @@ class App extends Component {
       <div className="App">
         <Nav />
         <Header />
-        <EntryForm
-          entry={this.state.entryEditorValue}
-          tags={this.state.tagEditorValue}
-          entryEditorValueChanged={this.entryEditorValueChanged}
-          tagEditorValueChanged={this.tagEditorValueChanged}
-          entryFormSubmitted={this.entryFormSubmitted}
-        />
+        {this.state.inPreviewMode ? (
+          <PreviewForm text={this.state.entryEditorValue} tags={this.state.tagEditorValue} onEditEntry={this.onEditEntry} onSaveEntry={this.onSaveEntry} />
+        ) : (
+          <EntryForm
+            text={this.state.entryEditorValue}
+            tags={this.state.tagEditorValue}
+            entryEditorValueChanged={this.entryEditorValueChanged}
+            tagEditorValueChanged={this.tagEditorValueChanged}
+            entryFormSubmitted={this.entryFormSubmitted}
+            onPreviewEntryForm={this.previewEntryFormClicked}
+          />
+        )}
         <EntriesContainer entries={this.state.entries} />
       </div>
     );

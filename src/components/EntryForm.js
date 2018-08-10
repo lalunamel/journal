@@ -29,7 +29,7 @@ const styles = {
     border: `1px solid ${borderColor}`,
     padding: "0 8px"
   },
-  submitButton: {
+  previewButton: {
     width: "max-content",
     alignSelf: "flex-end",
     marginTop: 20,
@@ -50,21 +50,22 @@ const EntryForm = props => {
 
   return (
     <div style={styles.entryForm}>
-      <textarea style={styles.entryEditor} onChange={entryEditorOnChange} value={props.entry} placeholder={"Dear diary..."} />
+      <textarea style={styles.entryEditor} onChange={entryEditorOnChange} value={props.text} placeholder={"Dear diary..."} />
       <input style={styles.tagEditor} onChange={tagEditorOnChange} type="text" value={props.tags} placeholder={"software, android, cats"} />
-      <button style={styles.submitButton} onClick={props.entryFormSubmitted} type="submit">
-        Submit
+      <button style={styles.previewButton} onClick={props.onPreviewEntryForm}>
+        Preview
       </button>
     </div>
   );
 };
 
 EntryForm.propTypes = {
-  entry: PropTypes.string,
+  text: PropTypes.string,
   tags: PropTypes.string,
   entryEditorValueChanged: PropTypes.func,
   tagEditorValueChanged: PropTypes.func,
-  entryFormSubmitted: PropTypes.func
+  entryFormSubmitted: PropTypes.func,
+  onPreviewEntryForm: PropTypes.func
 };
 
 export default EntryForm;
