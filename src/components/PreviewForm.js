@@ -15,7 +15,8 @@ const styles = {
   },
   entryContainer: {
     backgroundColor: "hsla(0, 0%, 90%, 1)",
-    padding: 40
+    padding: 40,
+    minHeight: 150
   },
   buttonContainer: {
     display: "flex",
