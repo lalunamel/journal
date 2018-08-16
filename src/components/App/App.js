@@ -17,20 +17,7 @@ class App extends Component {
       inPreviewMode: false,
       entryEditorValue: "",
       tagEditorValue: "",
-      entries: [
-        {
-          date: new Date().toISOString(),
-          tags: "software, android, cats",
-          text: `Today I was working on an exercism in Kotlin. When I ran the test in Android Studio I got the error \`Failed to compile. TriangleTest not found\`
-          Turns out I just needed to run it in IntelliJ instead. See [this](http://wwww.stackoverflow.com) stackoverflow question.`
-        },
-        {
-          date: new Date().toISOString(),
-          tags: "software, android, cats",
-          text: `Today  I was wonrking on an exercism in Kotlin. When I ran the test in Android Studio I got the error \`Failed to compile. TriangleTest not found\`
-            Turns out I just needed to run it in IntelliJ instead. See [this](http://wwww.stackoverflow.com) stackoverflow question.`
-        }
-      ]
+      entries: []
     };
 
     this.entryEditorValueChanged = this.entryEditorValueChanged.bind(this);
@@ -41,6 +28,10 @@ class App extends Component {
     this.onEntriesUpdated = this.onEntriesUpdated.bind(this);
 
     this.Repository = RepositoryFactory(this.onEntriesUpdated);
+  }
+
+  componentDidMount() {
+    this.Repository.getEntries();
   }
 
   // Actions
