@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReactMarkdown from "react-markdown";
 
-import Entry from "./Entry";
-
 let borderColor = "hsla(0, 0%, 70%, 1)";
 
 const styles = {

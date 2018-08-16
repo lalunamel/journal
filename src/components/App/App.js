@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import RepositoryFactory from "../../Repository/InMemoryRepository";
+import RepositoryFactory from "../../Repository/FirestoreRepositoryFactory";
 
 import Nav from "../Nav";
 import Header from "../Header";
@@ -26,7 +26,6 @@ class App extends Component {
     this.onEditEntry = this.onEditEntry.bind(this);
     this.onSaveEntry = this.onSaveEntry.bind(this);
     this.onEntriesUpdated = this.onEntriesUpdated.bind(this);
-
     this.Repository = RepositoryFactory(this.onEntriesUpdated);
   }
 
