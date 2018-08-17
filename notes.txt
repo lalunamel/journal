@@ -1,1 +1,0 @@
-https://github.com/withspectrum/draft-js-markdown-plugin
