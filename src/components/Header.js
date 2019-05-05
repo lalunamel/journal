@@ -19,11 +19,11 @@ const styles = {
   }
 };
 
-export default props => {
+export default React.memo(props => {
   return (
     <div style={styles.header}>
       <div style={styles.title}>Journal</div>
       <div style={styles.subtitle}>is a log for what worked and what didn't</div>
     </div>
   );
-};
+});

@@ -29,7 +29,7 @@ const styles = {
   }
 };
 
-const Entry = props => {
+const Entry = React.memo(props => {
   const formattedDate = new Date(props.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "2-digit" });
 
   return (
@@ -41,7 +41,7 @@ const Entry = props => {
       </div>
     </div>
   );
-};
+});
 
 Entry.propTypes = {
   date: PropTypes.string.isRequired,

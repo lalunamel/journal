@@ -12,7 +12,7 @@ const styles = {
   }
 };
 
-const EntriesContainer = props => {
+const EntriesContainer = React.memo(props => {
   const entriesByDate = props.entries.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
@@ -22,7 +22,7 @@ const EntriesContainer = props => {
       })}
     </div>
   );
-};
+});
 
 EntriesContainer.propTypes = {
   entries: PropTypes.array.isRequired

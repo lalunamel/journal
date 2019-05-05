@@ -23,7 +23,7 @@ const styles = {
   }
 };
 
-export default props => {
+export default React.memo(props => {
   return (
     <nav style={styles.nav}>
       <ul style={styles.ul}>
@@ -50,4 +50,4 @@ export default props => {
       </ul>
     </nav>
   );
-};
+});

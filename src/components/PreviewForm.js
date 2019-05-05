@@ -32,7 +32,7 @@ const styles = {
   }
 };
 
-const PreviewForm = props => {
+const PreviewForm = React.memo(props => {
   return (
     <div style={styles.previewForm}>
       <div style={styles.entryContainer}>
@@ -48,7 +48,7 @@ const PreviewForm = props => {
       </div>
     </div>
   );
-};
+});
 
 PreviewForm.propTypes = {
   text: PropTypes.string,

@@ -39,7 +39,7 @@ const styles = {
   }
 };
 
-const EntryForm = props => {
+const EntryForm = React.memo(props => {
   const entryEditorOnChange = e => {
     props.entryEditorValueChanged(e.target.value);
   };
@@ -57,7 +57,7 @@ const EntryForm = props => {
       </button>
     </div>
   );
-};
+});
 
 EntryForm.propTypes = {
   text: PropTypes.string,
